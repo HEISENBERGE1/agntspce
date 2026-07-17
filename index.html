@@ -55,7 +55,6 @@
   <div class="hero-body">
     <div class="hero-container">
       <div class="hero-left">
-        <div class="hero-badge anim-hero" style="--i:0">Now in beta</div>
         <h1 class="hero-headline anim-hero" style="--i:1">
           Your AI team<br>
           <span>ships together.</span>
@@ -166,7 +165,7 @@
 <section class="showcase-section" id="showcase">
   <div class="showcase-glow"></div>
   <div class="sc-body">
-    <div class="sc-window animate-up" id="sc-window">
+    <div class="sc-window animate-scale" id="sc-window">
       <div class="sc-top">
         <div class="sc-dots"><span></span><span></span><span></span></div>
         <div class="sc-loc">app.agntspace.io</div>
@@ -250,7 +249,6 @@
     </div>
     <div class="sc-heading animate-up">
       <h2 class="sc-headline">The Operating System for AI Teams.</h2>
-      <p class="sc-sub">Watch your AI agents plan, reason, collaborate and execute together in one intelligent workspace.</p>
     </div>
   </div>
 </section>
@@ -311,16 +309,21 @@
 </section>
 
 <section class="section workflow-section" id="process">
-  <div class="workflow-bg" data-parallax="0.02"></div>
+  <div class="workflow-bg" data-parallax="0.02">
+    <div class="workflow-grid"></div>
+    <div class="workflow-glow-left"></div>
+    <div class="workflow-glow-right"></div>
+  </div>
   <div class="workflow-inner">
     <div class="workflow-top">
-      <div class="workflow-text animate-up">
+      <div class="workflow-text animate-left">
         <span class="section-eyebrow">How it works</span>
         <h2 class="workflow-heading">Multiple AI agents.<br>One shared workspace.</h2>
         <p class="workflow-desc">AgntSpace coordinates them automatically — planning, research, development, design, and QA work together to complete complex tasks.</p>
       </div>
-      <div class="workflow-visual animate-up" style="--i:1">
+      <div class="workflow-visual animate-right" style="--i:1">
         <div class="wf-panel">
+          <div class="wf-panel-glow"></div>
           <div class="wf-graph">
             <svg class="wf-svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid meet">
               <defs>
@@ -329,7 +332,7 @@
                   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
                 <radialGradient id="wf-ambient" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="rgba(34,197,94,0.05)"/>
+                  <stop offset="0%" stop-color="rgba(34,197,94,0.06)"/>
                   <stop offset="100%" stop-color="transparent"/>
                 </radialGradient>
               </defs>
@@ -400,41 +403,53 @@
         </div>
       </div>
     </div>
-    <div class="workflow-cards animate-up" style="--i:2">
-      <div class="wf-card glass">
-        <div class="wf-card-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    <div class="workflow-steps animate-up" style="--i:2">
+      <div class="wf-step glass">
+        <div class="wf-step-icon-wrap">
+          <span class="wf-step-count">01</span>
+          <div class="wf-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
         </div>
-        <div class="wf-card-body">
-          <span class="wf-card-title">Create Workspace</span>
-          <span class="wf-card-desc">Set up your project and invite your team</span>
-        </div>
-      </div>
-      <div class="wf-card glass">
-        <div class="wf-card-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-        </div>
-        <div class="wf-card-body">
-          <span class="wf-card-title">Assign AI Agents</span>
-          <span class="wf-card-desc">Choose specialized roles for each task</span>
+        <div class="wf-step-body">
+          <span class="wf-step-title">Create Workspace</span>
+          <span class="wf-step-desc">Set up your project and invite your team</span>
         </div>
       </div>
-      <div class="wf-card glass">
-        <div class="wf-card-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <div class="wf-step glass">
+        <div class="wf-step-icon-wrap">
+          <span class="wf-step-count">02</span>
+          <div class="wf-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+          </div>
         </div>
-        <div class="wf-card-body">
-          <span class="wf-card-title">Agents Collaborate</span>
-          <span class="wf-card-desc">Watch them plan, build, and ship together</span>
+        <div class="wf-step-body">
+          <span class="wf-step-title">Assign AI Agents</span>
+          <span class="wf-step-desc">Choose specialized roles for each task</span>
         </div>
       </div>
-      <div class="wf-card glass">
-        <div class="wf-card-num">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      <div class="wf-step glass">
+        <div class="wf-step-icon-wrap">
+          <span class="wf-step-count">03</span>
+          <div class="wf-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
         </div>
-        <div class="wf-card-body">
-          <span class="wf-card-title">Deliver Results</span>
-          <span class="wf-card-desc">Review output and deploy to production</span>
+        <div class="wf-step-body">
+          <span class="wf-step-title">Agents Collaborate</span>
+          <span class="wf-step-desc">Watch them plan, build, and ship together</span>
+        </div>
+      </div>
+      <div class="wf-step glass">
+        <div class="wf-step-icon-wrap">
+          <span class="wf-step-count">04</span>
+          <div class="wf-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+        </div>
+        <div class="wf-step-body">
+          <span class="wf-step-title">Deliver Results</span>
+          <span class="wf-step-desc">Review output and deploy to production</span>
         </div>
       </div>
     </div>
@@ -443,7 +458,7 @@
 
 <section class="cta-section">
   <div class="cta-glow"></div>
-  <div class="cta-inner animate-up">
+  <div class="cta-inner animate-scale">
     <h2>Ready to build your AI team?</h2>
     <p>Join teams already shipping faster with AgntSpace. It's free to start, no credit card required.</p>
     <a href="#" class="btn-primary btn-large">

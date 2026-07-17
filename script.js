@@ -1,3 +1,47 @@
+/* ─── Activity Panel ─── */
+(function(){
+  var entries = document.querySelectorAll('.scp-entry');
+  entries.forEach(function(entry){
+    entry.addEventListener('click', function(){
+      entries.forEach(function(e){ e.classList.remove('active'); });
+      entry.classList.add('active');
+    });
+  });
+  var badge = document.querySelector('.scp-badge');
+  if (badge) {
+    setInterval(function(){
+      badge.style.opacity = '.6';
+      setTimeout(function(){ badge.style.opacity = '1'; }, 300);
+    }, 3000);
+  }
+})();
+
+/* ─── Sidebar Tabs ─── */
+(function(){
+  var tabs = document.querySelectorAll('.scs-item');
+  var mainImage = document.querySelector('.sc-image');
+  var views = [
+    { src: 'app.png' },
+    { src: 'app.png' },
+    { src: 'app.png' },
+    { src: 'app.png' },
+    { src: 'app.png' },
+  ];
+  tabs.forEach(function(tab, i){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      if (mainImage && views[i]) {
+        mainImage.style.opacity = '0';
+        setTimeout(function(){
+          mainImage.src = views[i].src;
+          mainImage.style.opacity = '1';
+        }, 150);
+      }
+    });
+  });
+})();
+
 const header = document.getElementById('site-header');
 const onScroll = () => {
   requestAnimationFrame(() => {
@@ -23,18 +67,24 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
 
-document.querySelectorAll('.animate-up').forEach(el => revealObserver.observe(el));
+document.querySelectorAll('[class*="animate-"]').forEach(el => {
+  if (!el.classList.contains('anim-hero')) {
+    revealObserver.observe(el);
+  }
+});
 
 document.querySelectorAll('.stagger-children').forEach(container => {
   Array.from(container.children).forEach((el, i) => {
     el.style.setProperty('--i', i);
-    if (!el.classList.contains('animate-up')) {
+    if (!el.classList.contains('animate-up') &&
+        !el.classList.contains('animate-left') &&
+        !el.classList.contains('animate-right') &&
+        !el.classList.contains('animate-scale')) {
       el.classList.add('animate-up');
       revealObserver.observe(el);
     }
   });
 });
-
 
 
 
@@ -126,6 +176,8 @@ window.addEventListener('scroll', () => {
   var animating = false;
   var particleFrame = null;
   var animTimers = [];
+  var stepCount = 0;
+  var maxSteps = 8;
 
   function clearTimers(){
     animTimers.forEach(function(t){ clearTimeout(t); });
@@ -151,7 +203,9 @@ window.addEventListener('scroll', () => {
 
   function step(){
     if(!animating) return;
+    if (stepCount >= maxSteps) return;
 
+    stepCount++;
     var fromIdx = Math.floor(Math.random() * agents.length);
     var possible = routes.filter(function(r){ return r.from === fromIdx; });
     var route = possible[Math.floor(Math.random() * possible.length)];
@@ -186,8 +240,10 @@ window.addEventListener('scroll', () => {
 
   function start(){
     if(animating) return;
+    stepCount = 0;
     animating = true;
     clearTimers();
+    logContainer.innerHTML = '';
     addLogEntry('orchestrator', 'Initializing team...');
     setTimeout(function(){
       setNodeActive(0, true);
